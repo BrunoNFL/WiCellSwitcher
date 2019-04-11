@@ -1,0 +1,10 @@
+Package: com.brunonfl.wicellswitcher
+Name: WiCellSwitcher
+Depends: mobilesubstrate, ws.hbang.common (>= 1.11)
+Architecture: iphoneos-arm
+Description: Switch between Wi-Fi and Cellular the Smart Way!
+Maintainer: Bruno Andrade <brubiluco@globo.com>
+Author: Bruno Andrade <brubiluco@globo.com>
+Section: Tweaks
+Version: 0.0.5
+Installed-Size: 152
