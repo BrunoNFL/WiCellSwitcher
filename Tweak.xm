@@ -1,9 +1,4 @@
-//NSMutableDictionary *prefsplistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.brunonfl.wicellswitcherprefs.plist"];
-//NSNumber *disconnectOptionDict = [prefsplistDict objectForKey:@"disconnectOptionSwitch"];
 #import <Cephei/HBPreferences.h>
-
-/*@interface HBPreferences : NSObject
-@end*/
 
 @interface SBWiFiManager
 + (id)sharedInstance;
@@ -42,14 +37,6 @@
 - (void)_updateDataNetworkItem;
 @end
 
-@interface CCUILabeledRoundButton
-@property (nonatomic, copy, readwrite) NSString *title;
--(id)initWithHighlightColor:(id)arg1 useLightStyle:(BOOL)arg2;
-
-+ (id)sharedTeste;
-- (void)desligarWiFi;
-@end
-
 HBPreferences *preferences;
 
 BOOL cellularActive;
@@ -81,30 +68,6 @@ extern "C" void CTCellularDataPlanSetIsEnabled(Boolean enabled);
   }
 }
 %end
-
-/*%hook CCUILabeledRoundButton
--(id)initWithHighlightColor:(id)arg1 useLightStyle:(BOOL)arg2{
-  wiFiButtonID = arg1;
-  %orig();
-  return arg1;
-}
-
-%new
-+(instancetype)alloc{
-  static CCUILabeledRoundButton *sharedInstance = nil;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-      sharedInstance = [super alloc];
-      // Do any other initialisation stuff here
-  });
-  return sharedInstance;
-}
-
-%new
-- (void)desligarWiFi{
-  [[%c(SBWiFiManager) sharedInstance] setWiFiEnabled:NO];
-}
-%end*/
 
 %hook SBStatusBarStateAggregator
 - (void)_updateDataNetworkItem{
@@ -188,38 +151,7 @@ extern "C" void CTCellularDataPlanSetIsEnabled(Boolean enabled);
 
 %end
 
-/*%new
-- (void)getWiCellSwitcherPrefs{
-  prefsplistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.brunonfl.wicellswitcherprefs.plist"];
-  disconnectOptionDict = [prefsplistDict objectForKey:@"disconnectOptionSwitch"];
-
-  if (disconnectOptionDict != nil){
-    disconnectOption = [[prefsplistDict objectForKey:@"disconnectOptionSwitch"] boolValue];
-  }
-  else{
-    disconnectOption = YES;
-  }
-  [prefsplistDict release];
-}*/
-
-/*static void loadPrefs()
-{
-  NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.brunonfl.wicellswitcherprefs.plist"];
-  if(prefs)
-  {
-      disconnectOption = ( [prefs objectForKey:@"disconnectOptionSwitch"] ? [[prefs objectForKey:@"disconnectOptionSwitch"] boolValue] : disconnectOption );
-  }
-  [prefs release];
-}*/
-
 %ctor {
     preferences = [[HBPreferences alloc] initWithIdentifier:@"com.brunonfl.wicellswitcher"];
     [preferences registerBool:&disconnectOption default:YES forKey:@"disconnectOptionSwitch"];
-    //NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.brunonfl.wicellswitcher.plist"];
 }
-
-/*%ctor
-{
-  CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.brunonfl.wicellswitcherprefs.settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-  loadPrefs();
-}*/
