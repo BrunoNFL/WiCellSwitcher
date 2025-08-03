@@ -71,6 +71,27 @@ Este projeto é um exemplo perfeito de como essas ferramentas podem ser usadas p
 
 ---
 
+## Reconhecimento da Comunidade 🏆
+
+O WiCellSwitcher foi calorosamente recebido pela comunidade jailbreak, ganhando feedback positivo e um destaque em um grande portal de notícias sobre iOS.
+
+* **Destaque no iDownloadBlog:** Leia a análise oficial do tweak no **[iDownloadBlog](https://www.idownloadblog.com/2019/05/01/wicellswitcher/)**.
+* **Lançamento Original no Reddit:** Veja a reação da comunidade no **[subreddit r/jailbreak](https://www.reddit.com/r/jailbreak/comments/bjca1y/release_wicellswitcher_switch_between_wifi_and/)**.
+
+### O Que os Usuários Disseram
+
+Aqui estão alguns comentários do tópico de lançamento original:
+
+> "THIS is what i need. God i love this. I didnt realize my phone used my cell data when i was connected to wifi. Thats some shit."
+>
+> — *u/CrucifictionGod on r/jailbreak*
+
+> "Work Perfect in A12 , thanks by this Awesome Tweak!!!"
+>
+> — *u/yosbel182us on r/jailbreak*
+
+---
+
 ## Como Compilar
 
 1.  Certifique-se de ter a [toolchain Theos](https://theos.dev/) instalada.
